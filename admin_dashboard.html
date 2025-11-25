@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sabian Secondary School Management System</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles for Admin Dashboard */
+        :root {
+            --sabian-blue: #1a4e95; 
+        }
+        .navbar-custom {
+            background-color: var(--sabian-blue);
+        }
+        .sidebar {
+            background-color: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            min-height: 100vh;
+        }
+        .stat-card {
+            border-left: 5px solid var(--sabian-blue);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="admin_dashboard.html">
+                <i class="bi bi-person-fill-gear me-2"></i>Admin Dashboard
+            </a>
+            <span class="navbar-text text-white-50">Sabian Secondary School</span>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-outline-light" href="login.html">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Layout (Sidebar + Content Area) -->
+    <div class="container-fluid">
+        <div class="row">
+            
+            <!-- Sidebar Navigation -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active text-primary fw-bold" aria-current="page" href="admin_dashboard.html">
+                                <i class="bi bi-house-door me-2"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Link to the detailed sub-page example -->
+                            <a class="nav-link text-secondary" href="admin_manage_students.html">
+                                <i class="bi bi-people me-2"></i> Manage Students
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Placeholder link for other required pages -->
+                            <a class="nav-link text-secondary" href="admin_manage_teachers.html">
+                                <i class="bi bi-person-video2 me-2"></i> Manage Teachers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="admin_manage_classes.html">
+                                <i class="bi bi-bookmark me-2"></i> Manage Classes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="admin_manage_attendance.html">
+                                <i class="bi bi-clipboard-check me-2"></i> Manage Attendance
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="admin_manage_exams.html">
+                                <i class="bi bi-pencil-square me-2"></i> Manage Exams
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="admin_view_reports.html">
+                                <i class="bi bi-file-earmark-bar-graph me-2"></i> View Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+                <h1 class="h2 mb-4 text-sabian-blue">Welcome, School Administrator</h1>
+
+                <!-- Summary Statistics -->
+                <div class="row g-4 mb-5">
+                    
+                    <!-- Stat Card 1 -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-white shadow-sm stat-card p-3">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-people-fill fs-2 text-primary me-3"></i>
+                                <div>
+                                    <p class="text-uppercase fw-bold text-muted mb-1">Total Students</p>
+                                    <h5 class="mb-0">850</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stat Card 2 -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-white shadow-sm stat-card p-3">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-person-video2 fs-2 text-info me-3"></i>
+                                <div>
+                                    <p class="text-uppercase fw-bold text-muted mb-1">Total Teachers</p>
+                                    <h5 class="mb-0">55</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stat Card 3 -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-white shadow-sm stat-card p-3">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-clipboard-check fs-2 text-success me-3"></i>
+                                <div>
+                                    <p class="text-uppercase fw-bold text-muted mb-1">Attendance Today</p>
+                                    <h5 class="mb-0">96.5%</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 4 -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-white shadow-sm stat-card p-3">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-calendar-event fs-2 text-warning me-3"></i>
+                                <div>
+                                    <p class="text-uppercase fw-bold text-muted mb-1">Upcoming Exams</p>
+                                    <h5 class="mb-0">5 Days</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- End Summary Statistics -->
+
+                <!-- Quick Management Links -->
+                <h3 class="h4 mb-3 text-secondary">Quick Management Tasks</h3>
+                <div class="row g-4">
+                    
+                    <!-- Management Card 1: Students -->
+                    <div class="col-md-4">
+                        <div class="card text-center shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-people fs-1 text-primary mb-3"></i>
+                                <h5 class="card-title">Manage Students</h5>
+                                <p class="card-text text-muted">Enroll, edit profiles, and track student status.</p>
+                                <a href="admin_manage_students.html" class="btn btn-outline-primary mt-2">Go to Students <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Management Card 2: Teachers -->
+                    <div class="col-md-4">
+                        <div class="card text-center shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-person-video2 fs-1 text-info mb-3"></i>
+                                <h5 class="card-title">Manage Teachers</h5>
+                                <p class="card-text text-muted">Manage staff records, assignments, and access.</p>
+                                <a href="admin_manage_teachers.html" class="btn btn-outline-info mt-2">Go to Teachers <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Management Card 3: Reports -->
+                    <div class="col-md-4">
+                        <div class="card text-center shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-file-earmark-bar-graph fs-1 text-success mb-3"></i>
+                                <h5 class="card-title">View Reports</h5>
+                                <p class="card-text text-muted">Generate academic, financial, and attendance reports.</p>
+                                <a href="admin_view_reports.html" class="btn btn-outline-success mt-2">Go to Reports <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- End Quick Links -->
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>

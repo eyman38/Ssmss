@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Login - Sabian Secondary School</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the dark theme and responsiveness */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1f2937; /* Gray 900 */
+        }
+
+        .login-card {
+            /* Gray 800 background for the card */
+            background-color: #111827; 
+            border: 1px solid #374151;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        .tab-button {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            color: #d1d5db; /* Light Gray Text */
+        }
+        
+        /* Teal accent color for active tab */
+        .tab-button.active {
+            border-bottom-color: #2dd4bf; /* Teal 400 */
+            color: #2dd4bf; /* Teal 400 */
+        }
+        
+        .tab-button:hover:not(.active) {
+            color: #9ca3af; /* Gray 400 on hover */
+        }
+        
+        .tab-content-pane {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .tab-content-pane.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .input-field {
+            background-color: #374151; /* Gray 700 for inputs */
+            border: 1px solid #4b5563; /* Gray 600 border */
+            color: #f3f4f6; /* Light text color */
+        }
+        .input-field::placeholder {
+            color: #9ca3af; /* Placeholder color */
+        }
+
+        /* Home Button Styling */
+        .home-button {
+            background-color: #f59e0b; /* Amber 500 */
+            color: #1f2937; /* Dark text */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
+        }
+        .home-button:hover {
+            background-color: #d97706; /* Darker Amber */
+            transform: scale(1.02);
+        }
+
+        /* Message Box Styling */
+        #temp-alert-box {
+            background-color: #10b981; /* Emerald 500 */
+            color: white;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+    
+    <!-- Back to Home Button -->
+    <a href="homepage.html" class="home-button mb-8 flex items-center px-8 py-3 font-bold rounded-full text-lg shadow-xl transition duration-200 uppercase tracking-wider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-3">
+            <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a1.5 1.5 0 0 1-2.12 2.12l-1.42-1.42V17.25a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V12.23l-1.42 1.42a1.5 1.5 0 0 1-2.12-2.12l8.69-8.69Z" />
+            <path d="M12.75 5.659v1.897a.75.75 0 0 0 1.5 0v-1.897l3.75-3.75a.75.75 0 0 0-1.06-1.06l-4.47 4.47Z" />
+        </svg>
+        Home Page
+    </a>
+
+    <div id="login-card" class="login-card w-full max-w-lg rounded-2xl overflow-hidden relative">
+        
+        <!-- Header -->
+        <div class="p-8 text-center border-b border-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mx-auto mb-3 text-teal-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-9-6v.75m-9 3l9-6 9 6m0 0l-3 1.5m-3-3v8.25" />
+            </svg>
+            <h1 class="text-3xl font-extrabold text-white">Sabian SMS Portal</h1>
+            <p class="text-base text-gray-400 mt-2">Secure access for staff and students.</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="flex px-8 pt-6">
+            <button id="tab-admin-btn" data-target="admin-content" class="tab-button flex-1 py-3 text-center active">
+                Admin
+            </button>
+            <button id="tab-teacher-btn" data-target="teacher-content" class="tab-button flex-1 py-3 text-center">
+                Teacher
+            </button>
+            <button id="tab-student-btn" data-target="student-content" class="tab-button flex-1 py-3 text-center">
+                Student
+            </button>
+        </div>
+        
+        <!-- Tab Content Containers -->
+        <div class="p-8">
+            <!-- 1. Admin Login Content (Default active) -->
+            <div id="admin-content" class="tab-content-pane active">
+                <form id="admin-form" class="login-form space-y-6">
+                    <p class="text-sm text-gray-400">Log in to manage system configurations.</p>
+                    <div>
+                        <label for="admin-email" class="block text-sm font-medium text-gray-300 mb-1">Admin Email</label>
+                        <input type="email" id="admin-email" placeholder="admin@sabian.edu" class="input-field block w-full px-4 py-3 rounded-lg focus:ring-teal-500 focus:border-teal-500" required>
+                    </div>
+                    <div>
+                        <label for="admin-password" class="block text-sm font-medium text-gray-300 mb-1">Password</label>
+                        <input type="password" id="admin-password" placeholder="••••••••" class="input-field block w-full px-4 py-3 rounded-lg focus:ring-teal-500 focus:border-teal-500" required>
+                    </div>
+                    <button type="submit" class="w-full py-3 px-4 bg-teal-600 text-white font-bold rounded-lg hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-500/50 transition duration-200 shadow-md shadow-teal-500/20">
+                        Admin Access
+                    </button>
+                </form>
+            </div>
+
+            <!-- 2. Teacher Login Content -->
+            <div id="teacher-content" class="tab-content-pane">
+                <form id="teacher-form" class="login-form space-y-6">
+                    <p class="text-sm text-gray-400">Log in to manage your classes and grades.</p>
+                    <div>
+                        <label for="teacher-id" class="block text-sm font-medium text-gray-300 mb-1">Teacher ID</label>
+                        <input type="text" id="teacher-id" placeholder="T101" class="input-field block w-full px-4 py-3 rounded-lg focus:ring-amber-500 focus:border-amber-500" required>
+                    </div>
+                    <div>
+                        <label for="teacher-password" class="block text-sm font-medium text-gray-300 mb-1">Password</label>
+                        <input type="password" id="teacher-password" placeholder="••••••••" class="input-field block w-full px-4 py-3 rounded-lg focus:ring-amber-500 focus:border-amber-500" required>
+                    </div>
+                    <button type="submit" class="w-full py-3 px-4 bg-amber-600 text-gray-900 font-bold rounded-lg hover:bg-amber-700 focus:outline-none focus:ring-4 focus:ring-amber-500/50 transition duration-200 shadow-md shadow-amber-500/20">
+                        Teacher Access
+                    </button>
+                </form>
+            </div>
+
+            <!-- 3. Student Login Content -->
+            <div id="student-content" class="tab-content-pane">
+                <form id="student-form" class="login-form space-y-6">
+                    <p class="text-sm text-gray-400">Log in to view your academic information.</p>
+                    <div>
+                        <label for="student-roll" class="block text-sm font-medium text-gray-300 mb-1">Student Roll Number</label>
+                        <input type="text" id="student-roll" placeholder="S2024001" class="input-field block w-full px-4 py-3 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" required>
+                    </div>
+                    <div>
+                        <label for="student-password" class="block text-sm font-medium text-gray-300 mb-1">Password</label>
+                        <input type="password" id="student-password" placeholder="••••••••" class="input-field block w-full px-4 py-3 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" required>
+                    </div>
+                    <button type="submit" class="w-full py-3 px-4 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500/50 transition duration-200 shadow-md shadow-indigo-500/20">
+                        Student Access
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="p-4 text-center text-xs text-gray-600 border-t border-gray-700">
+            &copy; 2024 Sabian Secondary School Management System. All rights reserved.
+        </div>
+
+    </div>
+
+    <script>
+        // --- 1. Tab Switching Logic ---
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const contentPanes = document.querySelectorAll('.tab-content-pane');
+
+        function switchTab(event) {
+            const clickedButton = event.currentTarget;
+            const targetId = clickedButton.getAttribute('data-target');
+
+            tabButtons.forEach(button => button.classList.remove('active'));
+            contentPanes.forEach(pane => pane.classList.remove('active'));
+
+            clickedButton.classList.add('active');
+            const targetPane = document.getElementById(targetId);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        }
+        tabButtons.forEach(button => {
+            button.addEventListener('click', switchTab);
+        });
+        
+        // --- 2. Form Submission and Navigation Logic ---
+        const allForms = document.querySelectorAll('.login-form');
+
+        function handleLogin(event) {
+            // CRITICAL: Stop the page from reloading
+            event.preventDefault(); 
+
+            const formId = event.currentTarget.id;
+            // Extracts the role name (e.g., 'admin', 'teacher', or 'student')
+            const role = formId.split('-')[0];
+            
+            if (event.currentTarget.checkValidity()) {
+                
+                // Construct the correct target filename based on the extracted role
+                let targetFile;
+                if (role === 'student') {
+                    // Specific file requested by the user previously
+                    targetFile = 'students_dashboard.html'; 
+                } else {
+                    targetFile = `${role}_dashboard.html`;
+                }
+                
+                alertMessage(`Welcome, ${role.charAt(0).toUpperCase() + role.slice(1)}! Redirecting to dashboard...`);
+                
+                setTimeout(() => {
+                    // Redirects to the role-specific dashboard file
+                    window.location.href = targetFile;
+                }, 1500); 
+            }
+        }
+
+        allForms.forEach(form => {
+            form.addEventListener('submit', handleLogin);
+        });
+
+        // --- 3. Custom Alert Message Function ---
+        function alertMessage(message) {
+            const container = document.getElementById('login-card');
+            let messageBox = document.getElementById('temp-alert-box');
+            
+            if (!messageBox) {
+                messageBox = document.createElement('div');
+                messageBox.id = 'temp-alert-box';
+                messageBox.className = 'absolute top-0 left-0 right-0 p-3 text-center text-white font-semibold shadow-xl transition-transform duration-300 z-10 rounded-t-2xl';
+                messageBox.style.transform = 'translateY(-100%)';
+                container.prepend(messageBox);
+            }
+            
+            messageBox.textContent = message;
+            
+            // Slide down
+            setTimeout(() => {
+                messageBox.style.transform = 'translateY(0)';
+            }, 10);
+
+            // Hide after a delay
+            setTimeout(() => {
+                messageBox.style.transform = 'translateY(-100%)';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
