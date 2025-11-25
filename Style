@@ -1,0 +1,42 @@
+<style>
+        /* Custom styles for the uniform-inspired light theme */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Soft white background (White Shirt) */
+            color: #1f2937; /* Dark Gray text */
+        }
+
+        .header-bg {
+            background-color: #059669; /* Emerald 600 (Green Collar/Pants) */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            background-color: #059669; /* Emerald 600 */
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(5, 150, 105, 0.4);
+        }
+        .cta-button:hover {
+            background-color: #047857; /* Darker Emerald */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.5);
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Icon color */
+        .card-icon {
+            color: #059669; /* Emerald 600 */
+        }
+    </style>
