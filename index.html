@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabian Secondary School - Home</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* Custom styles for the green theme and professional layout */
+        :root {
+            --sabian-green: #198754; /* Bootstrap success green */
+            --sabian-light: #f8f9fa;
+            --sabian-dark: #146c43;
+        }
+        .navbar-brand .logo-text {
+            color: var(--sabian-green) !important;
+            font-weight: 700;
+        }
+        .btn-primary, .bg-primary {
+            background-color: var(--sabian-green) !important;
+            border-color: var(--sabian-green) !important;
+        }
+        .text-primary { color: var(--sabian-green) !important; }
+        .footer-bg { background-color: var(--sabian-dark); } /* Slightly darker footer */
+        .hero-section {
+            /* Background image and overlay for modern look */
+            background: linear-gradient(rgba(25, 135, 84, 0.85), rgba(25, 135, 84, 0.85)), url('https://placehold.co/1200x600/198754/ffffff?text=Excellence+in+Education');
+            background-size: cover;
+            background-position: center;
+            height: 70vh; /* Increased height for prominence */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        /* Style for the 'About' section background */
+        .section-bg {
+            background-color: var(--sabian-light);
+        }
+        .section-bg-dark {
+            background-color: #f0f0f0;
+        }
+        /* Style for the new content image */
+        .school-photo {
+            object-fit: cover;
+            height: 100%;
+            min-height: 350px; /* Ensure image section has height */
+        }
+        .map-placeholder {
+            height: 350px;
+            background-color: #e9ecef;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body id="top">
+
+    <!-- Navigation Bar: Fully Responsive Structure (collapses on 'lg' breakpoint and below) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+        <div class="container">
+            <!-- Brand/Logo Placeholder -->
+            <a class="navbar-brand d-flex align-items-center" href="#top">
+                <i class="bi bi-mortarboard-fill fs-3 me-2 text-primary"></i>
+                <span class="logo-text fs-4">Sabian Secondary School</span>
+            </a>
+            <!-- Toggler for mobile view (relies on Bootstrap CSS and JS now) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links (Updated to use internal anchors) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#top">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <!-- Login Button now triggers the Unified Login Modal -->
+                    <li class="nav-item">
+                        <button class="btn btn-sm btn-primary text-white ms-lg-3 px-3 shadow-sm rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#unifiedLoginModal">
+                            Login Portal
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-2 fw-bolder mb-3">Welcome to Sabian Secondary School</h1>
+            <p class="lead mb-4 fst-italic text-uppercase fw-light">"Excellence in Education, Integrity in Action."</p>
+            <button type="button" class="btn btn-lg btn-light text-primary shadow-lg rounded-pill px-5" data-bs-toggle="modal" data-bs-target="#unifiedLoginModal">
+                Start Learning Today
+            </button>
+        </div>
+    </header>
+    
+    <!-- Section: Why Choose Sabian? (Main Features) -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                
+                <!-- Text Content Column -->
+                <div class="col-lg-7">
+                    <span class="text-primary fw-bold text-uppercase small">Our Mission</span>
+                    <h2 class="fw-bold display-6 mb-4">Why Choose Sabian for Your Child's Future?</h2>
+                    
+                    <p class="lead text-muted">We provide a nurturing and challenging environment where every student is encouraged to achieve their personal best. Our curriculum balances core academic disciplines with essential 21st-century skills like critical thinking, collaboration, and digital literacy.</p>
+
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-star-fill text-primary fs-4 me-3 mt-1"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Dedicated Faculty</h5>
+                            <p class="mb-0 text-muted small">Our teachers are highly experienced professionals committed to individualized student success.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <i class="bi bi-globe-americas text-primary fs-4 me-3 mt-1"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Modern Facilities</h5>
+                            <p class="mb-0 text-muted small">Access to state-of-the-art labs, sports grounds, and libraries to support comprehensive learning.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="#about" class="btn btn-outline-primary rounded-pill px-4">Discover Our Approach <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="col-lg-5">
+                    <img src="https://placehold.co/600x400/198754/ffffff?text=Sabian+School+Campus" 
+                         class="img-fluid rounded-4 shadow-lg school-photo w-100" 
+                         alt="Photo of the Sabian School Campus or students engaging in activities."
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/198754/ffffff?text=School+Image+Missing';"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Key Features/Announcements -->
+    <section class="py-5 section-bg">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="fw-bold text-primary display-6">A Foundation for Future Leaders</h2>
+                    <p class="text-muted lead">Our secure online management system is designed to provide seamless access to critical academic data for our community members.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Feature 1: Academic Excellence -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-lg h-100 rounded-4 p-3 text-center">
+                        <div class="card-body">
+                            <i class="bi bi-book-half display-4 text-primary mb-3"></i>
+                            <h5 class="card-title fw-bold">Rigorous Academics</h5>
+                            <p class="card-text">High-standard curriculum preparing students for higher education and career success globally.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feature 2: School Life & Culture -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-lg h-100 rounded-4 p-3 text-center">
+                        <div class="card-body">
+                            <i class="bi bi-person-fill-heart display-4 text-primary mb-3"></i>
+                            <h5 class="card-title fw-bold">Holistic Development</h5>
+                            <p class="card-text">Promoting well-being through sports, arts, and leadership programs to build character.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feature 3: Online Portal Access -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-lg h-100 rounded-4 p-3 text-center bg-primary text-white">
+                        <div class="card-body">
+                            <i class="bi bi-pc-display display-4 mb-3"></i>
+                            <h5 class="card-title fw-bold">24/7 Portal Access</h5>
+                            <p class="card-text">Quickly check attendance, upload grades, and view timetables using our responsive system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section: About Us (New Integrated Section) -->
+    <section id="about" class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-5">
+                
+                <div class="col-lg-12 text-center mb-4">
+                    <span class="text-primary fw-bold text-uppercase small">Our Legacy</span>
+                    <h2 class="fw-bold display-5 text-primary mb-3">About Sabian Secondary School</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 800px;">Established in 1995, Sabian Secondary School has been dedicated to cultivating excellence, integrity, and lifelong learning in every student.</p>
+                </div>
+                
+                <!-- History and Mission -->
+                <div class="col-md-6">
+                    <h3 class="fw-bold text-dark mb-3"><i class="bi bi-calendar-check me-2 text-primary"></i>School History & Vision</h3>
+                    <p class="text-muted">For over two decades, Sabian has grown into a leading institution, recognized for its commitment to academic rigour and comprehensive student development. Our vision is to empower the next generation of global citizens who are equipped to face complex challenges with courage and creativity.</p>
+                    <p class="text-muted">We continuously update our teaching methodologies and infrastructure to ensure our students receive a world-class education that respects traditional values while embracing technological innovation.</p>
+                </div>
+
+                <!-- Core Values -->
+                <div class="col-md-6">
+                    <h3 class="fw-bold text-dark mb-3"><i class="bi bi-trophy-fill me-2 text-primary"></i>Core Values</h3>
+                    <ul class="list-group list-group-flush shadow-sm rounded-4">
+                        <li class="list-group-item d-flex align-items-center"><i class="bi bi-check-circle-fill me-2 text-primary fs-5"></i><span class="fw-bold me-2">Integrity:</span> Fostering honesty and strong moral principles.</li>
+                        <li class="list-group-item d-flex align-items-center"><i class="bi bi-check-circle-fill me-2 text-primary fs-5"></i><span class="fw-bold me-2">Excellence:</span> Striving for the highest standard in all academic and extracurricular pursuits.</li>
+                        <li class="list-group-item d-flex align-items-center"><i class="bi bi-check-circle-fill me-2 text-primary fs-5"></i><span class="fw-bold me-2">Respect:</span> Promoting a culture of courtesy, tolerance, and inclusion.</li>
+                        <li class="list-group-item d-flex align-items-center"><i class="bi bi-check-circle-fill me-2 text-primary fs-5"></i><span class="fw-bold me-2">Community:</span> Encouraging active participation and social responsibility.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section: Announcements and Events (Kept for dynamic content) -->
+    <section class="py-5 section-bg-dark">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Announcements List -->
+                <div class="col-lg-6">
+                    <h2 class="fw-bold text-primary mb-4 border-bottom pb-2"><i class="bi bi-megaphone-fill me-2"></i>Latest News & Updates</h2>
+                    
+                    <ul class="list-group list-group-flush rounded-4 shadow-sm">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Term 2 Final Exam Schedule Released
+                            <span class="badge text-bg-danger rounded-pill">Urgent</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Parent-Teacher Interviews: December 15th
+                            <span class="badge text-bg-warning text-dark rounded-pill">Reminder</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            School Closure Notice: Holiday Break Begins Dec 20
+                            <span class="badge text-bg-success rounded-pill">New</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Mathematics Club Competition Winners Announced
+                            <span class="badge text-bg-secondary rounded-pill">Archived</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Events/Gallery Placeholder -->
+                <div class="col-lg-6">
+                    <h2 class="fw-bold text-primary mb-4 border-bottom pb-2"><i class="bi bi-calendar-event me-2"></i>Upcoming Events & Gallery</h2>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="https://placehold.co/300x200/5cb85c/ffffff?text=School+Play" class="img-fluid rounded-3 shadow-sm" alt="School Play">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://placehold.co/300x200/f0ad4e/ffffff?text=Sports+Day" class="img-fluid rounded-3 shadow-sm" alt="Sports Day">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <p class="mb-0 text-muted small">Check our social media for more photos and event details!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section: Contact Us (New Integrated Section) -->
+    <section id="contact" class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <span class="text-primary fw-bold text-uppercase small">Get In Touch</span>
+                    <h2 class="fw-bold display-5 text-primary mb-3">Contact the School Office</h2>
+                </div>
+            </div>
+            
+            <div class="row g-5">
+                <!-- Contact Form Column -->
+                <div class="col-lg-6">
+                    <h4 class="fw-bold mb-3"><i class="bi bi-envelope-fill me-2 text-primary"></i>Send Us a Message</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="contactName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control rounded-pill" id="contactName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control rounded-pill" id="contactEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactSubject" class="form-label">Subject</label>
+                            <input type="text" class="form-control rounded-pill" id="contactSubject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactMessage" class="form-label">Message</label>
+                            <textarea class="form-control rounded-4" id="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm mt-3">Submit Inquiry</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Contact Details and Map Column -->
+                <div class="col-lg-6">
+                    <h4 class="fw-bold mb-3"><i class="bi bi-telephone-fill me-2 text-primary"></i>Our Details & Location</h4>
+                    
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-geo-alt-fill me-3 text-primary fs-5"></i>
+                            <div>
+                                <strong class="d-block">Address:</strong>
+                                123 School Road, Central District, City, 12345
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-phone-fill me-3 text-primary fs-5"></i>
+                            <div>
+                                <strong class="d-block">Phone:</strong>
+                                (123) 456-7890
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-envelope-open-fill me-3 text-primary fs-5"></i>
+                            <div>
+                                <strong class="d-block">Email:</strong>
+                                info@sabianschool.edu
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-clock-fill me-3 text-primary fs-5"></i>
+                            <div>
+                                <strong class="d-block">Office Hours:</strong>
+                                Monday - Friday, 8:00 AM - 4:00 PM
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <!-- Map Placeholder -->
+                    <div class="map-placeholder rounded-4 shadow-sm">
+                        <p class="mb-0 small"><i class="bi bi-map me-2"></i>Map Placeholder / Embed Location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white py-4 mt-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-6 text-md-start">
+                    <p class="mb-0">&copy; 2024 Sabian Secondary School. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        <a href="#about" class="text-white text-decoration-none me-3 small">About</a> | 
+                        <a href="#contact" class="text-white text-decoration-none small">Contact</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Unified Login Modal Form with Role Selection -->
+    <div class="modal fade" id="unifiedLoginModal" tabindex="-1" aria-labelledby="unifiedLoginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow-lg border-0">
+                <div class="modal-header bg-primary text-white rounded-top-4 border-0">
+                    <h5 class="modal-title fw-bold" id="unifiedLoginModalLabel"><i class="bi bi-person-check me-2"></i>Unified Portal Login</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="lead text-muted mb-4 text-center">Enter your credentials and select your role to continue.</p>
+                    
+                    <form id="unifiedLoginForm">
+                        
+                        <div class="mb-3">
+                            <label for="roleSelect" class="form-label fw-bold">Select Your Role</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-tag"></i></span>
+                                <select class="form-select rounded-end" id="roleSelect" required>
+                                    <option value="" disabled selected>-- Choose Role --</option>
+                                    <option value="student">Student</option>
+                                    <option value="teacher">Teacher</option>
+                                    <option value="admin">Administrator</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="usernameInput" class="form-label fw-bold">Username / ID</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control rounded-end" id="usernameInput" placeholder="Enter your ID or Username" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="passwordInput" class="form-label fw-bold">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                            <input type="password" class="form-control rounded-end" id="passwordInput" placeholder="Enter your password" required>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">Log In</button>
+                        </div>
+                    </form>
+
+                    <!-- Forgot Password and Sign Up Links -->
+                    <div class="text-center mt-3 pt-3 border-top">
+                        <p class="mb-2">
+                            <a href="#" class="text-muted small me-3">Forgot Password?</a> |
+                            <a href="signup.html" class="text-primary fw-bold ms-3">Create an Account (Sign Up)</a>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="modal-footer justify-content-center border-0 pt-0">
+                    <button type="button" class="btn btn-sm btn-link text-muted" data-bs-dismiss="modal">Close Window</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript Bundle and Custom Script for Redirection -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('unifiedLoginForm');
+            
+            if (loginForm) {
+                loginForm.addEventListener('submit', (event) => {
+                    event.preventDefault(); // Prevent default form submission
+                    
+                    const role = document.getElementById('roleSelect').value;
+                    
+                    if (!role) {
+                        // In a real application, you would show an error message in the UI
+                        // For demonstration, we'll just log an error
+                        console.error("Please select a role.");
+                        return;
+                    }
+                    
+                    // Simple redirection based on role selection
+                    let destinationUrl = '';
+                    switch(role) {
+                        case 'student':
+                            destinationUrl = 'login_student.html';
+                            break;
+                        case 'teacher':
+                            destinationUrl = 'login_teacher.html';
+                            break;
+                        case 'admin':
+                            destinationUrl = 'login_admin.html';
+                            break;
+                        default:
+                            console.error('Invalid role selected.');
+                            return;
+                    }
+
+                    // In a real app, you would validate credentials on the server before redirecting.
+                    // Here, we simulate the redirection to the dedicated portal dashboard.
+                    console.log(`Attempting login for role: ${role}. Redirecting to ${destinationUrl}`);
+                    window.location.href = destinationUrl;
+                });
+            }
+
+            // Smooth scrolling for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
